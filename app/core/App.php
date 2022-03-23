@@ -7,19 +7,17 @@ class App{
     public function __construct()
     {
         $url = $this->parseUrl();
-
         if($url == null){
             $url = [$this->controller];
         }
-
         // ngecek controller
-        if (file_exists('../app/controller/' . $url[0] . '.php')) {
+        if (file_exists('../app/controllers/' . $url[0] . '.php')) {
             $this->controller = $url[0];
             unset($url[0]);
         }
 
         // memanggil controller
-        require_once '../app/controller/' . $this->controller . '.php';
+        require_once '../app/controllers/' . $this->controller . '.php';
         $this->controller = new $this->controller;
 
         // panggil method
@@ -44,7 +42,7 @@ class App{
         if (isset($_GET['url'])) {
             $url = rtrim($_GET['url'], '/');
             $url = filter_var($url, FILTER_SANITIZE_URL);
-            $url = explode($url, '/');
+            $url = explode('/', $url);
             return $url;
         }
     }

@@ -1,6 +1,7 @@
 <h2>Ini adalah halaman Login</h2>
 <form action="">
     <input type="text">
-    <input type="button" onclick="submit">
+    <button>Submit</button>
+    <p>Ke halaman <a href="http://localhost/cerita-perempuan/public/signup/index">Sign Up</a></p>
 
 </form>
