@@ -2,6 +2,6 @@
 <form action="">
     <input type="text">
     <button>Submit</button>
-    <p>Ke halaman <a href="http://localhost/cerita-perempuan/public/signup/index">Sign Up</a></p>
+    <p>Ke halaman <a href="<?php BASEURL;?>signup/index">Sign Up</a></p>
 
 </form>

@@ -4,20 +4,20 @@ class App{
     protected $method = 'index';
     protected $params = [];
 
-    public function __construct()
+    public function __construct() 
     {
         $url = $this->parseUrl();
         if($url == null){
             $url = [$this->controller];
         }
         // ngecek controller
-        if (file_exists('../app/controllers/' . $url[0] . '.php')) {
+        if (file_exists('app/controllers/' . $url[0] . '.php')) {
             $this->controller = $url[0];
             unset($url[0]);
         }
 
         // memanggil controller
-        require_once '../app/controllers/' . $this->controller . '.php';
+        require_once 'app/controllers/' . $this->controller . '.php';
         $this->controller = new $this->controller;
 
         // panggil method
