@@ -33,12 +33,14 @@ class App{
 
         // menjalankan controller, method dan params jika ada
         call_user_func_array([$this->controller, $this->method], $this->params);
+        var_dump($url);
     }
 
     public function parseUrl()
     {
         if (isset($_GET['url'])) {
-            $url = rtrim($_GET['url'], '/');
+            //$url = rtrim($_GET['url'], '/');
+            $url = $_GET['url'];
             $url = filter_var($url, FILTER_SANITIZE_URL);
             $url = explode('/', $url);
             return $url;

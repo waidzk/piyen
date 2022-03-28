@@ -7,6 +7,14 @@ class Home extends Controller{
         $this->view('home/index');
         $this->view('template/footer');
     }
+    public function feeds()
+    {
+        $data['title'] = 'Feeds';
+        $this->view('template/header', $data);
+        $this->view('home/feeds');
+        $this->view('template/footer');
+
+    }
 }
 
 

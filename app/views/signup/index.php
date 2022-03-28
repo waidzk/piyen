@@ -8,6 +8,6 @@
     <input type="password" name="pass" id="pass"></input>
     <br>
     <button>Submit</button>
-    <p>Ke halaman <a href="<?php BASEURL;?>login">Log In</a></p>
+    <p>Ke halaman <a href="<?php echo BASEURL;?>login">Log In</a></p>
 
 </form>

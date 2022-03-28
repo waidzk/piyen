@@ -1,5 +1,5 @@
 <?php 
-define('BASEURL', 'http://localhost/cerita-perempuan');
+define('BASEURL', 'http://localhost/cerita-perempuan/');
 
 
 ?>
