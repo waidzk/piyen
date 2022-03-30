@@ -11,7 +11,7 @@ class Database {
     public function __construct()
     {
         // data source name
-     $dsn = 'mysql:host' .$this->host. ';dbname=' .$this->db_name. '';
+     $dsn = 'mysql:host=' .$this->host. ';dbname=' .$this->db_name. '';
 
      $option = [
          PDO::ATTR_PERSISTENT => true,
@@ -47,24 +47,22 @@ class Database {
         }
         $this->stmt->bindValue($param, $value, $type);
     }
-    public function executeds()
+    public function executed()
     {
         $this->stmt->execute();
     }
 
     public function resultSet(){
-        $this->executeds();
+        $this->executed();
         return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     public function single(){
-        $this->executeds();
+        $this->executed();
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
     }
     public function rowCount(){
         return $this->stmt->rowCount();
     }
-
-
 }
 
 
