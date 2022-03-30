@@ -12,6 +12,11 @@ class Login extends Controller{
 
     public function auth()
     {
+        session_start();
+        if(isset($_SESSION['login'])){
+            header('Location: ' .BASEURL. 'feeds');
+            exit;
+        }
         if(isset($_POST['login'])){
             $username = $_POST['uname'];
             $pass = $_POST['pass'];
@@ -20,7 +25,10 @@ class Login extends Controller{
 
             if($result['username'] === $username){
                 if($pass === $result['password']){
-                    header('Location: ' . BASEURL . 'feeds/index');
+                    $_SESSION['login'] = true;
+                    $_SESSION['id'] = $result['id'];
+                    $_SESSION['username'] = $result['username'];
+                    header('Location: ' . BASEURL . 'feeds');
                     exit;
                 } else {
                     echo "
@@ -33,6 +41,16 @@ class Login extends Controller{
             }
 
         }
+    }
+
+    public function logout()
+    {
+        session_start();
+        session_destroy();
+        session_unset();
+
+        header('Location: '.BASEURL.'login');
+        exit;
     }
     
 }

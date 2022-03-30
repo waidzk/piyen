@@ -7,10 +7,11 @@
     <title><?= $data['title']; ?> Teras Perempuan</title>
 </head>
 <body>
-    <h1>Selamat datang, Ali!</h1>
     <ul>
-        <li><a href="<?= BASEURL;?>profile">Profile</a> </li>
+        <li><a href="<?= BASEURL;?>">Articles</a></li>
+        <?php if (isset($_SESSION['login'])):?>
+        <li><a href="<?= BASEURL;?>profiles/user/<?= $_SESSION['username'] ?>">Profile</a> </li>
         <li><a href="<?= BASEURL;?>feeds">Feeds</a> </li>
-        <li><a href="<?= BASEURL;?>login">Login</a> </li>
-        <li><a href="<?= BASEURL;?>signup">SignUp</a> </li>
+        <li><a href="<?= BASEURL;?>login/logout">Logout</a></li>
+        <?php endif; ?>
     </ul>
