@@ -3,11 +3,9 @@ class Login extends Controller{
     public function index()
     {
         $data['user'] = $this->model('Users_model')->getAllUsers();
-        
         $data['title'] = 'Login - ';
         $this->view('template/header', $data);
         $this->view('login/index', $data);
-        
     }
 
     public function auth()
@@ -19,11 +17,12 @@ class Login extends Controller{
         }
         if(isset($_POST['login'])){
             $username = $_POST['username'];
+            //$username = isset($_POST['username'])? $_POST['username']: '';
             $pass = $_POST['pass'];
-
+            //$pass = isset($_POST['pass'])? $_POST['pass'] : '';
             $result = $this->model('Users_model')->getUsername($username); 
 
-            if($username ??= $result['username']){
+            if($username === $result['username'] || $username === $result['email']){
                 if(password_verify($pass, $result['passwords'])){
                     $_SESSION['login'] = true;
                     $_SESSION['id'] = $result['id'];
@@ -33,7 +32,7 @@ class Login extends Controller{
                 } else {
                     echo "
                     <script>
-                    alert('Password Salah! Anda bukan admin Erdoe');
+                    alert('Username atau password anda salah');
                     document.location.href = '".BASEURL."login';
                     </script>
                     ";
@@ -41,20 +40,18 @@ class Login extends Controller{
                     // exit;
                 }
             }
-
         }
-    }
 
-    public function logout()
+    }
+    
+    protected function logout()
     {
         session_start();
         session_destroy();
         session_unset();
-
         header('Location: '.BASEURL.'login');
         exit;
     }
     
 }
-
 ?>

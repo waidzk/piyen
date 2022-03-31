@@ -6,7 +6,6 @@ class Signup extends Controller{
         $data['title'] = 'Sign Up - ';
         $this->view('template/header', $data);
         $this->view('signup/index');
-        $this->view('template/footer');
     }
 
     public function regist()

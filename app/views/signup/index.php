@@ -1,15 +1,27 @@
-<h2>Ini adalah halaman Signup</h2>
-<form action="<?= BASEURL;?>signup/regist" method="post">
-    <label for="username">Username</label>
-    <input name="username" type="text" id="username"><br>
-    <label for="birth">Tanggal Lahir</label>
-    <input type="date" name="birth" id="birth"></input><br>
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email"></input> <br>
-    <label for="pass">Password</label>
-    <input type="password" name="pass" id="pass"></input>
-    <br>
-    <button type="submit" name="signup">Signup</button>
-    <p>Ke halaman <a href="<?php echo BASEURL;?>login">Log In</a></p>
-
-</form>
+<section id="signup">
+            <div>
+            <h1>Sign up</h1>
+            <form action="<?= BASEURL;?>signup/regist" method="post">
+                <div class="input username">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Masukkan username">
+                </div>
+                <div class="input email">
+                    <label for="username">Email</label>
+                    <input type="email" id="username" name="email" placeholder="Masukkan email yang aktif">
+                </div>
+                <div class="input password">
+                    <label for="password">Password</label>
+                    <input type="password" id="password_1" name="password" placeholder="Masukkan password">
+                </div>
+                <div class="input password">
+                    <label for="password">Ketik ulang password</label>
+                    <input type="password" id="password_2" name="password" placeholder="Masukkan ulang password">
+                </div>
+                <a href="">Lupa Password?</a>
+                <button class="login-button">Sign Up</button>
+                <button class="google-login-button"><img class="google-logo" src="<?= BASEURL ?>/public/image/icons/google.png">Sign in with Google</button>
+                <p class="">Already have an account?<a href="<?= BASEURL ?>login"> Login</a></p>  
+            </form>
+            </div>
+</section>

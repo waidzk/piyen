@@ -17,7 +17,7 @@ class Users_model{
 
     public function getUsername($username)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE username=:username');
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE username=:username or email=:username');
         $this->db->bind('username', $username);
         return $this->db->single();
     }
@@ -30,16 +30,14 @@ class Users_model{
     {
         $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
         $this->db->bind('id', $id);
-        $this->db->executed();
         return $this->db->single();
     }
 
     public function register($data)
     {
         $data['pass'] = password_hash($data['pass'], PASSWORD_BCRYPT);
-        $this->db->query("INSERT INTO pengguna VALUES (NULL, :username, :birth, :email, :passwords, NULL, NULL, NULL, current_timestamp(), current_timestamp())");
+        $this->db->query("INSERT INTO pengguna VALUES (NULL, :username, NULL, :email, :passwords, NULL, NULL, NULL, current_timestamp(), current_timestamp())");
         $this->db->bind('username', $data['username']);
-        $this->db->bind('birth', $data['birth']);
         $this->db->bind('email', $data['email']);
         $this->db->bind('passwords', $data['pass']);
         $this->db->executed();
