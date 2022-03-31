@@ -1,5 +1,5 @@
 <h2>Ini adalah halaman Signup</h2>
-<form action="" method="post">
+<form action="<?= BASEURL;?>signup/regist" method="post">
     <label for="username">Username</label>
     <input name="username" type="text" id="username"><br>
     <label for="birth">Tanggal Lahir</label>
@@ -9,7 +9,7 @@
     <label for="pass">Password</label>
     <input type="password" name="pass" id="pass"></input>
     <br>
-    <button>Signup</button>
+    <button type="submit" name="signup">Signup</button>
     <p>Ke halaman <a href="<?php echo BASEURL;?>login">Log In</a></p>
 
 </form>

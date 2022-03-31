@@ -18,13 +18,13 @@ class Login extends Controller{
             exit;
         }
         if(isset($_POST['login'])){
-            $username = $_POST['uname'];
+            $username = $_POST['username'];
             $pass = $_POST['pass'];
 
-            $result = $this->model('Users_model')->getUsername($username);
+            $result = $this->model('Users_model')->getUsername($username); 
 
-            if($result['username'] === $username){
-                if($pass === $result['password']){
+            if($username ??= $result['username']){
+                if(password_verify($pass, $result['passwords'])){
                     $_SESSION['login'] = true;
                     $_SESSION['id'] = $result['id'];
                     $_SESSION['username'] = $result['username'];
@@ -34,9 +34,11 @@ class Login extends Controller{
                     echo "
                     <script>
                     alert('Password Salah! Anda bukan admin Erdoe');
-                    document.location.href = 'index.php';
+                    document.location.href = '".BASEURL."login';
                     </script>
                     ";
+                    // header('Location: ' . BASEURL . 'login');
+                    // exit;
                 }
             }
 
