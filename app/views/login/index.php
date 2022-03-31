@@ -1,22 +1,19 @@
-<h2>Ini adalah halaman Login</h2>
-<form action="<?= BASEURL;?>login/auth" method="post">
-    <label for="username">Username: </label>
-    <input type="text" name="uname" id="username"></input><br>
-    <label for="pass">Password: </label>
-    <input type="password" name="pass" id="pass"></input><br>
-    <button name="login">Submit</button>
-    <p>Ke halaman <a href="<?= BASEURL;?>signup">Sign Up</a></p>
-</form>
-
-<?php foreach ($data['user'] as $user){ ?>
-    <ul>
-        <li>username :<?= $user['username']; ?></li>
-        <li>email :<?= $user['email']; ?></li>
-        <li>password :<?= $user['password']; ?></li>
-        <li>bio :<?= $user['bio']; ?></li>
-        <li>created_at :<?= $user['created_at']; ?></li>
-        <li>updated_at :<?= $user['updated_at']; ?></li>
-        
-    </ul>
-<?php }
-?>
+<section id="login">
+            <div>
+            <h1>Login</h1>
+            <form action="<?= BASEURL;?>login/auth" method="post">
+                <div class="input username">
+                    <label for="username">Username / Email</label>
+                    <input type="text" id="username" name="uname" placeholder="Masukkan username / email">
+                </div>
+                <div class="input password">
+                    <label for="password">Password</label>
+                    <input type="password" id="pass" name="pass" placeholder="Masukkan password">
+                </div>
+                <a href="">Lupa Password?</a>
+                <button class="login-button" name="login">Login</button>
+                <button class="google-login-button"><img class="google-logo" src="<?= BASEURL ?>/public/image/icons/google.png">Sign in with Google</button>
+                <p class="">Not registered?<a href="<?= BASEURL ?>signup"> Create an account</a></p>  
+            </form>
+            </div>
+</section>
