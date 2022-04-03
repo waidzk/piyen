@@ -7,9 +7,9 @@
     <title><?= $data['title']; ?> Teras Perempuan</title>
 </head>
 <body>
-    <?php if (isset($_SESSION['login'])):?>
+    <?php if (isset($_SESSION['login'])){?>
         <h1>Selamat datang, <b><?= $_SESSION['username']; ?></b>!</h1>
-    <?php endif; ?>
+    <?php } ?>
     <ul>
         <li><a href="<?= BASEURL;?>">Articles</a></li>
         <?php if (isset($_SESSION['login'])):?>

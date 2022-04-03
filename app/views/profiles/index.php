@@ -14,4 +14,4 @@
     <button type="submit" name="simpan">Simpan</button>
 </form>
 
-<a href="<?= BASEURL; ?>profiles/user/<?= $_SESSION['username'];?>">kembali</a>
+<a href="<?= BASEURL; ?>profiles/user/<?= $data['id']['username'];?>">kembali</a>

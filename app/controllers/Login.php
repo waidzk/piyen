@@ -2,7 +2,6 @@
 class Login extends Controller{
     public function index()
     {
-        $data['user'] = $this->model('Users_model')->getAllUsers();
         $data['title'] = 'Login - ';
         $this->view('template/header', $data);
         $this->view('login/index', $data);
@@ -21,9 +20,9 @@ class Login extends Controller{
             $pass = $_POST['pass'];
             //$pass = isset($_POST['pass'])? $_POST['pass'] : '';
             $result = $this->model('Users_model')->getUsername($username); 
-
-            if($username === $result['username'] || $username === $result['email']){
-                if(password_verify($pass, $result['passwords'])){
+            $passResult = isset($result['passwords']) ? $result['passwords'] : '';
+            if($username ??= $result['username'] || $username ??= $result['email']){
+                if(password_verify($pass, $passResult)){
                     $_SESSION['login'] = true;
                     $_SESSION['id'] = $result['id'];
                     $_SESSION['username'] = $result['username'];
@@ -40,11 +39,9 @@ class Login extends Controller{
                     // exit;
                 }
             }
-        }
-
     }
-    
-    protected function logout()
+}
+    public function logout()
     {
         session_start();
         session_destroy();
@@ -52,6 +49,4 @@ class Login extends Controller{
         header('Location: '.BASEURL.'login');
         exit;
     }
-    
 }
-?>

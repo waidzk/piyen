@@ -1,6 +1,6 @@
 
 <ul>
-    
+
     <li>USER ID: <?php echo $data['userdata']['id']; ?></li>
     <li>Photo</li>
     <li>uname :<?php echo $data['userdata']['username']; ?></li>
@@ -9,6 +9,7 @@
     <li>bio   :<?php echo $data['userdata']['bio']; ?></li>
     
 </ul>
+
 
 
 

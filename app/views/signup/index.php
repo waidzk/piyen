@@ -16,7 +16,7 @@
                 </div>
                 <div class="input password">
                     <label for="password">Ketik ulang password</label>
-                    <input type="password" id="password_2" name="password" placeholder="Masukkan ulang password">
+                    <input type="password" id="password_2" name="password2" placeholder="Masukkan ulang password">
                 </div>
                 <a href="">Lupa Password?</a>
                 <button class="login-button">Sign Up</button>

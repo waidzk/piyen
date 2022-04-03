@@ -35,11 +35,11 @@ class Users_model{
 
     public function register($data)
     {
-        $data['pass'] = password_hash($data['pass'], PASSWORD_BCRYPT);
+        $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
         $this->db->query("INSERT INTO pengguna VALUES (NULL, :username, NULL, :email, :passwords, NULL, NULL, NULL, current_timestamp(), current_timestamp())");
         $this->db->bind('username', $data['username']);
         $this->db->bind('email', $data['email']);
-        $this->db->bind('passwords', $data['pass']);
+        $this->db->bind('passwords', $data['password']);
         $this->db->executed();
         return $this->db->rowCount();
     }
@@ -48,7 +48,7 @@ class Users_model{
     {
         $query = "UPDATE `pengguna` 
             SET 
-            `username` = :username, `birth` = :birth, `email` = :email, `photo` = :photo, `bio` = :bio 
+            `username` = :username, `birth` = :birth, `email` = :email, `photo` = :photo, `bio` = :bio, `updated_at` = :updated_at 
             WHERE `pengguna`.`id` = :id
         ";
         $this->db->query($query);
@@ -58,6 +58,7 @@ class Users_model{
         $this->db->bind('email', $data['email']);
         $this->db->bind('photo', $data['photo']);
         $this->db->bind('bio', $data['bio']);
+        $this->db->bind('updated_at', date('Y-m-d H:i:s'));
         $this->db->executed();
         return $this->db->rowCount();
     }

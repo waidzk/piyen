@@ -17,7 +17,7 @@ class Articles extends Controller{
             exit;
         }
         $data['title'] = '';
-        $this->view('template/header', $data);
+        $this->view('template/navigator', $data);
         $this->view('articles/add');
         $this->view('template/footer');
     }

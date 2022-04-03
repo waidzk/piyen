@@ -20,7 +20,7 @@ class Feeds extends Controller{
             exit;
         }
         $data['title'] = '';
-        $this->view('template/header', $data);
+        $this->view('template/navigator', $data);
         $this->view('feeds/add');
         $this->view('template/footer');
     }
