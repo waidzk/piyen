@@ -1,7 +1,7 @@
 <section id="signup">
             <div>
             <h1>Sign up</h1>
-            <form action="<?= BASEURL;?>signup/regist" method="post">
+            <form action="<?php echo BASEURL;?>signup/regist" method="post">
                 <div class="input username">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" placeholder="Masukkan username">
@@ -19,7 +19,7 @@
                     <input type="password" id="password_2" name="password2" placeholder="Masukkan ulang password">
                 </div>
                 <a href="">Lupa Password?</a>
-                <button class="login-button">Sign Up</button>
+                <button class="login-button" name="signup">Sign Up</button>
                 <button class="google-login-button"><img class="google-logo" src="<?= BASEURL ?>/public/image/icons/google.png">Sign in with Google</button>
                 <p class="">Already have an account?<a href="<?= BASEURL ?>login"> Login</a></p>  
             </form>
