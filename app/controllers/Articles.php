@@ -24,5 +24,4 @@ class Articles extends Controller{
     
 }
 
-
 ?>

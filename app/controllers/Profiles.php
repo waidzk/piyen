@@ -57,6 +57,7 @@ class Profiles extends Controller{
         // $url = explode('/', $url);
         $data['userdata'] = $this->model('Users_model')->getUsername($uri);
         session_start();
+        $data['feeds'] = $this->model('Feeds_model')->getFeedUser($_SESSION['id']);
         if(!isset($_SESSION['login'])){
             header('Location: '. BASEURL .'login');
             exit;
