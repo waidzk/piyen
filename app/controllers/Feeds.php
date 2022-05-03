@@ -6,7 +6,8 @@ class Feeds extends Controller{
         if(!isset($_SESSION['login'])){
             header('Location: '. BASEURL .'login');
             exit;
-        }
+        };
+        $data['count_comment'] = 
         $data['feeds'] = $this->model('Feeds_model')->getAllFeeds();
         $data['comments'] = $this->model('Comments_model')->getComments();
         $data['title'] = 'Feeds - ';

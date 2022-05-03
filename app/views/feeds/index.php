@@ -11,7 +11,7 @@
         <tr>
             <td id="#<?= $feed['id']; ?>">
                 <hr>
-                <span style="flex: 1;" >
+                <span >
                     <a href="<?= BASEURL?>profiles/user/<?= $feed['username'];?>">
                         <img src="<?= BASEURL;?>app/assets/img/profiles/<?= $feed['photo']; ?>" alt="Profile_Photo" width="30px">
                         <h3><?= $feed['username']; ?></h3>
@@ -22,12 +22,18 @@
                         echo '<img src="'.BASEURL.'app/assets/img/feeds/'.$feed['feed_photo'].'" alt="Feeds_Photo" width="300px">';
                     }
                     ?>
+                <p><?= $feed['created_at']; ?></p>
                 <hr>
                 <?php foreach($data['comments'] as $comment): ?>
-                    <p><b><?= $comment['username'] ?>: </b><?= $comment['comment_value']; ?></p>
-                    <form action="">
-                    <button type="submit" name="vote">Vote</button>
-                    </form>
+                    <?php if($feed['id'] == $comment['feed_id']): ?>
+                        <p>
+                            <b><?= $comment['username'] ?>: </b>
+                            <?= $comment['comment_value']; ?>
+                        </p>
+                        <form action="<?= BASEURL?>votes/add/<?= $comment['id']?>" method="post">
+                            <button type="submit"><?php if(isset($_POST['vote'])) {echo 'Voted';} else {echo 'Vote';}  ?></button>
+                        </form>
+                    <?php endif; ?>
                 <?php endforeach; ?>
                 <form action="<?= BASEURL;?>comments/add/<?= $feed['id']; ?>" method="post">
                     <input type="text" name="comment" id="comment" placeholder="Comment">

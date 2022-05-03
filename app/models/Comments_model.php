@@ -12,7 +12,7 @@ class Comments_model
     }
 
     public function getComments(){
-        $this->db->query('SELECT username, comment_value FROM ' . $this->table3 . ', ' . $this->table2 .', ' . $this->table . ' WHERE comments.user_id = pengguna.id AND comments.feed_id = feeds.id order by comments.id ASC');
+        $this->db->query('SELECT * FROM ' . $this->table3 . ', ' . $this->table2 .', ' . $this->table . ' WHERE comments.user_id = pengguna.id AND comments.feed_id = feeds.id order by comments.id ASC');
         return $this->db->resultSet();
     }
 
