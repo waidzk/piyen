@@ -8,6 +8,7 @@ class Feeds extends Controller{
             exit;
         }
         $data['feeds'] = $this->model('Feeds_model')->getAllFeeds();
+        $data['comments'] = $this->model('Comments_model')->getComments();
         $data['title'] = 'Feeds - ';
         $this->view('template/navigator', $data);
         $this->view('feeds/index', $data);

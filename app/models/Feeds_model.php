@@ -2,6 +2,7 @@
 class Feeds_model {
     public $table = "feeds";
     public $table2 = 'pengguna';
+    public $table3 = 'comments';
     public $db;
 
     public function __construct()
@@ -15,7 +16,7 @@ class Feeds_model {
         return $this->db->resultSet();
     }
     public function getAllFeeds(){
-        $this->db->query('SELECT * FROM ' . $this->table . ', ' . $this->table2 . ' WHERE feeds.user_id = pengguna.id order by feeds.id desc');
+        $this->db->query('SELECT * FROM '. $this->table2 . ', ' . $this->table . ' WHERE feeds.user_id = pengguna.id order by feeds.id desc');
         return $this->db->resultSet();
     }
 
