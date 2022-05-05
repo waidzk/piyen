@@ -17,10 +17,18 @@ class Votes_model {
         return $this->db->rowCount();
     }
 
-    public function countVote(){
-        $query = "SELECT * FROM ". $this->table . " WHERE id = :id";
+    public function downVote($id, $comId){
+        $query = 'DELETE FROM '. $this->table . ' WHERE user_id = :id AND commen_id = :comId';
+        $this->db->query($query);
         $this->db->bind('id', $id);
-        return mysqli_num_rows($this->db->query($query));
+        $this->db->bind('comId', $comId);
+        $this->db->executed();
+        return $this->db->rowCount();
+    }
+
+    public function showVote($id){
+        $query = $this->db->query('SELECT COUNT(*) FROM '. $this->table .' WHERE commen_id = '.$id);
+        return $query;
     }
 
 }
