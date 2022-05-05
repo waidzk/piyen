@@ -1,0 +1,22 @@
+{
+  "name": "cerita-perempuan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waidzk/piyen.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waidzk/piyen/issues"
+  },
+  "homepage": "https://github.com/waidzk/piyen#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.0.24"
+  }
+}
