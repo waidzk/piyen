@@ -8,7 +8,7 @@
                     <div class="flex flex-col p-4">
                         <h1 class="font-semibold text-2xl text-pink-500 mb-2">Sign Up</h1>
                         <p class="text-xs text-slate-400">Teras Perempuan</p>
-                        <form class="m-4" action="<?= BASEURL;?>login/auth" method="post">
+                        <form class="m-4" action="<?= BASEURL;?>signup/regist" method="post">
                            <label class="block">
                               <span for="username" class="block text-sm font-medium text-slate-700">Username</span>
                               <input type="text" id="username" name="username" placeholder="Create your username" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
@@ -29,7 +29,7 @@
                           </label>
                            <label class="block">
                                 <span class="block text-sm font-medium text-slate-700">Password</span>
-                                <input type="password" id="password_1" name="password_1" placeholder="Create your password" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                                <input type="password" id="password_1" name="password" placeholder="Create your password" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                   focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                                   disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                                   invalid:border-pink-500 invalid:text-pink-600
@@ -38,7 +38,7 @@
                             </label>
                             <label class="block">
                               <span class="block text-sm font-medium text-slate-700">Retype Password</span>
-                              <input type="password" id="password_2" name="password_2" placeholder="Retype your password" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                              <input type="password" id="password_2" name="password2" placeholder="Retype your password" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
                                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                                 invalid:border-pink-500 invalid:text-pink-600
@@ -46,7 +46,7 @@
                               "/>
                           </label>
                             <div class="flex flex-col justify-center items-center w-full">
-                              <button class="rounded-full w-full bg-pink-500 hover:bg-pink-700 duration-100 text-white p-2 m-2">Sign up</button>
+                              <button name="signup" class="rounded-full w-full bg-pink-500 hover:bg-pink-700 duration-100 text-white p-2 m-2">Sign up</button>
                               <p class="text-sm m-2 text-center text-slate-300">or</p>       
                               <button name="login" class="rounded-full w-full border border-pink-300 hover:bg-pink-300 duration-100 text-pink-500 hover:text-white p-2 m-2 inline-flex justify-center">
                                 <img src="<?= BASEURL ?>/public/image/icons/google.png" class="w-5 h-5 mr-2 self-center" alt="">Sign up with google</button>
