@@ -476,12 +476,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: relative;
 }
 
-.bottom-0 {
-  bottom: 0px;
+.inset-x-0 {
+  left: 0px;
+  right: 0px;
 }
 
-.top-0 {
-  top: 0px;
+.bottom-0 {
+  bottom: 0px;
 }
 
 .m-4 {
@@ -490,6 +491,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .m-2 {
   margin: 0.5rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
 }
 
 .mb-2 {
@@ -536,18 +552,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 1.25rem;
 }
 
-.h-6 {
-  height: 1.5rem;
-}
-
-.w-10 {
-  width: 2.5rem;
-}
-
-.w-12 {
-  width: 3rem;
-}
-
 .w-full {
   width: 100%;
 }
@@ -556,12 +560,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 1.25rem;
 }
 
-.w-6 {
-  width: 1.5rem;
-}
-
 .w-8 {
   width: 2rem;
+}
+
+.w-12 {
+  width: 3rem;
+}
+
+.flex-row {
+  flex-direction: row;
 }
 
 .flex-col {
@@ -596,10 +604,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 9999px;
 }
 
-.rounded {
-  border-radius: 0.25rem;
-}
-
 .rounded-r-lg {
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
@@ -609,8 +613,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-width: 1px;
 }
 
-.border-r-2 {
-  border-right-width: 2px;
+.border-t-2 {
+  border-top-width: 2px;
 }
 
 .border-slate-300 {
@@ -633,11 +637,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(236 72 153 / var(--tw-bg-opacity));
 }
 
-.bg-pink-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 168 212 / var(--tw-bg-opacity));
-}
-
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -649,14 +648,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .to-pink-500 {
   --tw-gradient-to: #ec4899;
-}
-
-.fill-pink-300 {
-  fill: #f9a8d4;
-}
-
-.p-3 {
-  padding: 0.75rem;
 }
 
 .p-8 {
@@ -671,14 +662,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding: 1rem;
 }
 
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
-
-.py-12 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+.p-3 {
+  padding: 0.75rem;
 }
 
 .px-3 {
@@ -689,6 +674,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 .text-center {
@@ -866,6 +856,16 @@ Ensure the default browser behavior of the `hidden` attribute.
     position: fixed;
   }
 
+  .md\:inset-y-0 {
+    top: 0px;
+    bottom: 0px;
+  }
+
+  .md\:inset-x-auto {
+    left: auto;
+    right: auto;
+  }
+
   .md\:top-0 {
     top: 0px;
   }
@@ -876,6 +876,25 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:right-0 {
     right: 0px;
+  }
+
+  .md\:left-0 {
+    left: 0px;
+  }
+
+  .md\:my-12 {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .md\:my-3 {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .md\:my-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 
   .md\:flex {
@@ -904,5 +923,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:items-center {
     align-items: center;
+  }
+
+  .md\:border-r-2 {
+    border-right-width: 2px;
+  }
+
+  .md\:px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 }
