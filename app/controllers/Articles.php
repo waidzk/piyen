@@ -4,6 +4,7 @@ class Articles extends Controller{
     {
         session_start();
         $data['title'] = '';
+        $this->view('template/header', $data);
         $this->view('template/navigator', $data);
         $this->view('articles/index');
         $this->view('template/footer');

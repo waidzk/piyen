@@ -1,3 +1,4 @@
+<div class="static ml-12 p-8">
 <h2>Ini adalah halaman feeds</h2>
 <br>
 <form action="<?= BASEURL;?>feeds/add" method="post" enctype="multipart/form-data">
@@ -65,6 +66,7 @@
         </tr>
     <?php endforeach; ?>
 </table>
+</div>
 <script src = "jquery-3.1.1.js"></script>	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 

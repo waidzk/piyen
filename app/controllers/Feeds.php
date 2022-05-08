@@ -10,9 +10,9 @@ class Feeds extends Controller{
         $data['feeds'] = $this->model('Feeds_model')->getAllFeeds();
         $data['comments'] = $this->model('Comments_model')->getComments();
         $data['title'] = 'Feeds - ';
+        $this->view('template/header', $data);
         $this->view('template/navigator', $data);
         $this->view('feeds/index', $data);
-        $this->view('template/footer');
     }
     public function add()
     {

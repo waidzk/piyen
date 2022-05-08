@@ -1,3 +1,4 @@
+<div class="static ml-12 p-8">
 <h2>ubah profiles</h2>
 <img src="<?= BASEURL;?>app/assets/img/profiles/<?= isset($data['id']['photo'])? $data['id']['photo'] : 'user.jpg'; ?>" alt="User_Profiles" width="100px">
 <form action="<?= BASEURL;?>profiles/update" method="post">
@@ -27,3 +28,4 @@
 <br>
 <br>
 <a href="<?= BASEURL; ?>profiles/user/<?= $data['id']['username'];?>">kembali</a>
+</div>

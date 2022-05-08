@@ -2,13 +2,14 @@
 class Profiles extends Controller{
     public function index()
     {
-        $data['title'] = '';
+        $data['title'] = 'Profile - ';
         session_start(); 
         $data['id'] = $this->model('Users_model')->getID($_SESSION['id']);
         if(!isset($_SESSION['login'])){
             header('Location: '. BASEURL .'login');
             exit;
         }
+        $this->view('template/header', $data);
         $this->view('template/navigator', $data);
         $this->view('profiles/index', $data);
         $this->view('template/footer');
@@ -64,6 +65,7 @@ class Profiles extends Controller{
         }
         // $data['url'] = $_GET['url'];
         $data['title'] = 'Profile - ';
+        $this->view('template/header', $data);
         $this->view('template/navigator', $data);
         $this->view('profiles/user', $data);
         $this->view('template/footer');

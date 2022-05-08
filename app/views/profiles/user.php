@@ -1,3 +1,4 @@
+<div class="static ml-12 p-8">
 <ul>
     <li>USER ID: <?php echo $data['userdata']['id']; ?></li>
     <li>Photo</li>
@@ -37,3 +38,4 @@
         </tr>
     <?php endforeach; ?>
 </table>
+</div>
