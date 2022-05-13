@@ -41,19 +41,19 @@
                         </p>
                         <!-- Bagian Vote -->
 						<?php 
-						if (validate_vote($feed['user_id'], $comment['id'])) {
+						if (validate_vote($_SESSION['id'], $comment['id'])) {
 							echo '
-							<button value="'.$comment['id'].'" class="voted" type="submit">❤</button>
+							<button value="'.$comment['id'].'" class="voted">❤</button>
 							';
 						} else {
 							echo '
-							<button value="'.$comment['id'].'" class="vote" type="submit">Vote</button>
+							<button value="'.$comment['id'].'" class="vote">Vote</button>
 							';
 						}
 						?>
-                        <p id="show_vote<?= $comment['id'] ?>">
+                        <span id="show_vote<?= $comment['id'] ?>">
 							<?= showVotes($comment['id']) ?>
-						</p>
+						</span>
                     <?php endif; ?>
                 <?php endforeach; ?>
                 <!-- form untuk menambahkan komentar -->

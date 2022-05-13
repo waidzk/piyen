@@ -6,7 +6,7 @@ class Votes extends Controller {
     }
 
     public function showVote(){
-        $this->model('Votes_model')->showVote($_POST['id']);
+        return showVotes($_POST['id']);
     }
 
     public function down(){
