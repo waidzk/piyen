@@ -48,17 +48,15 @@ class Profiles extends Controller{
         }
     }
 
-    public function user($uri)
+    public function user()
     {
+        if(!isset(exploded($_SERVER['REQUEST_URI'])[4]) || !isset(exploded($_SERVER['REQUEST_URI'])[5])){
+            header('Location: '.BASEURL.'err/notfound');
+        }
         $data['title'] = 'Profile - ';
-        // mendapatkan data username agar dikirim ke user.php
-        // $url = $_GET['url'];
-        // $url = rtrim($_GET['url'], '/');
-        // $url = filter_var($url, FILTER_SANITIZE_URL);
-        // $url = explode('/', $url);
-        $data['userdata'] = $this->model('Users_model')->getUsername($uri);
-        session_start();
-        $data['feeds'] = $this->model('Feeds_model')->getFeedUser($_SESSION['id']);
+        $data['userdata'] = $this->model('Users_model')->getUsername(exploded($_SERVER['REQUEST_URI'])[4]);
+        session_start();  
+        $data['feeds'] = $this->model('Feeds_model')->getFeedUser(exploded($_SERVER['REQUEST_URI'])[5]);
         if(!isset($_SESSION['login'])){
             header('Location: '. BASEURL .'login');
             exit;
@@ -79,14 +77,14 @@ class Profiles extends Controller{
                 echo "
                 <script>
                     alert('Berhasil diubah!');
-                    document.location.href = '".BASEURL."profiles/user/".$_POST['username']."';
+                    document.location.href = '".BASEURL."profiles/user/".$_POST['username']."/".$_SESSION['id']."';
                     </script>
                 ";
             } else {
                 echo "
                 <script>
                     alert('Gagal diubah, silakan periksa kembali!');
-                    document.location.href = '".BASEURL."profiles/user/".$_POST['username']."';
+                    document.location.href = '".BASEURL."profiles/user/".$_POST['username']."/".$_SESSION['id']."';
                     </script>
                 ";
             }

@@ -6,4 +6,5 @@ require_once 'core/Database.php';
 
 require 'app/helper/time.php';
 require 'app/helper/num_rows.php';
+require 'app/helper/exploader.php';
 ?>

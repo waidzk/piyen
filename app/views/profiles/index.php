@@ -27,5 +27,5 @@
 </form>
 <br>
 <br>
-<a href="<?= BASEURL; ?>profiles/user/<?= $data['id']['username'];?>">kembali</a>
+<a href="<?= BASEURL; ?>profiles/user/<?= $data['id']['username'];?>/<?= $data['id']['id'];?>">kembali</a>
 </div>

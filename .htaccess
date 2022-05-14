@@ -4,3 +4,9 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?url=$1 [L]
+
+ErrorDocument 404 http://localhost/cerita-perempuan/err/notfound
+ErrorDocument 403 http://localhost/cerita-perempuan/err
+
+#This syntax is use to production phase. If this project still on develoment, dont remove the comment. It will cause an error undetected.
+#php_flag display_errors off

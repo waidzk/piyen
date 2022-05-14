@@ -34,20 +34,21 @@ class Feeds extends Controller{
             header('Location: '.BASEURL.'feeds');
             exit;
         } else {
-            echo "
-                <script>
-                    alert('Gagal membuat feed!');
-                    </script>
-                ";
+            header('Location: '.BASEURL.'err/notfound');
         }
     }
 
     public function delete($url)
     {
-        session_start();
-        $this->model('Feeds_model')->deleteFeed($url); 
-        header('Location: '.BASEURL.'profiles/user/'.$_SESSION['username']);
-        exit;
+        if(!isset($url)){
+            header('Location: '.BASEURL.'err/notfound');
+        } else {
+            session_start();
+            $this->model('Feeds_model')->deleteFeed($url); 
+            header('Location: '.BASEURL.'profiles/user/'.$_SESSION['username']);
+            exit;
+        }
+        
     }
 }
 
