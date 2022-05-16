@@ -549,6 +549,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: 2.75rem;
 }
 
+.mb-11 {
+  margin-bottom: 2.75rem;
+}
+
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -573,16 +577,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 0.25rem;
 }
 
-.mb-14 {
-  margin-bottom: 3.5rem;
-}
-
-.mb-12 {
-  margin-bottom: 3rem;
-}
-
-.mb-11 {
-  margin-bottom: 2.75rem;
+.mt-10 {
+  margin-top: 2.5rem;
 }
 
 .block {
@@ -613,6 +609,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 100%;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
 .w-8 {
   width: 2rem;
 }
@@ -633,22 +633,22 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 10rem;
 }
 
+.w-3\/4 {
+  width: 75%;
+}
+
 .w-fit {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
 
-.w-3\/4 {
-  width: 75%;
-}
-
-.w-2\/5 {
-  width: 40%;
-}
-
 .w-1\/4 {
   width: 25%;
+}
+
+.w-6 {
+  width: 1.5rem;
 }
 
 .flex-row {
@@ -663,8 +663,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   flex-direction: column-reverse;
 }
 
+.items-end {
+  align-items: flex-end;
+}
+
 .items-center {
   align-items: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
 }
 
 .justify-center {
@@ -698,10 +706,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .border {
   border-width: 1px;
-}
-
-.border-2 {
-  border-width: 2px;
 }
 
 .border-t-2 {
@@ -1160,10 +1164,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:w-96 {
     width: 24rem;
-  }
-
-  .md\:w-4\/5 {
-    width: 80%;
   }
 
   .md\:flex-row {
