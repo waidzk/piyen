@@ -50,27 +50,27 @@
                 <?php 
 			    	if (validate_vote($_SESSION['id'], $comment['id'])) {
 			    		echo '
-			    		<button value="'.$comment['id'].'" id="vote" class="flex flex-row items-center mx-11 my-1 w-fit p-2 rounded-full stroke-white text-white voted">
-                          <div class="voted-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
-                          </svg></div>
-                          <div class="voted-count"><p class="text-xs">voted</p></div>
-                        </button>
+			    		  <button value="'.$comment['id'].'" id="voted" class="flex flex-row items-center mx-11 my-1 w-fit p-2 rounded-full stroke-pink-500 text-pink-500 voted">
+                  <div class="voted-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
+                  </svg></div>
+                  <span class="vote-count"><p class="text-vote text-xs">voted</p></span>
+                </button>
 			    		';
 			    	} else {
 			    		echo '
-			    		<button value="'.$comment['id'].'" id="vote" class="flex flex-row items-center mx-11 my-1 w-fit p-2 rounded-full vote">
-                          <div class="voted-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
-                          </svg></div>
-                          <div class="voted-count"><p class="text-xs">vote</p></div>
-                        </button>
+			    		  <button value="'.$comment['id'].'" id="vote" class="flex flex-row items-center mx-11 my-1 w-fit p-2 rounded-full vote">
+                  <div class="voted-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
+                  </svg></div>
+                  <span class="vote-count"><p class="text-vote text-xs">vote</p></span>
+                </button>
 			    		';
 			    	}
 			    ?>
                 <span id="show_vote<?= $comment['id'] ?>">
                     <p class="mx-5 text-xs text-slate-400">
-			        	<?= showVotes($comment['id']) ?> voted
+			        	      <span class="vote-number"><?= showVotes($comment['id']) ?></span> voted
                     </p>
                 </span>
                 <hr>
@@ -80,7 +80,7 @@
             <?php endforeach; ?>
             <form class="mx-4 text-xs" action="<?= BASEURL?>comments/add/<?= $feed['id']; ?>" method="post">
                     <input class="w-3/4 p-3 mr-1" type="text" name="comment" id="comment" placeholder="Comment here ...">
-                    <button class="bg-pink-50 p-2 rounded-full text-pink-500 font-semibold" type="submit" name="send">Send</button>
+                    <button class="p-2 rounded-md text-pink-500 border border-pink-500 font-semibold" type="submit" name="send">Send</button>
             </form>
         </div>
     </div>
@@ -133,10 +133,10 @@
             var $this = $(this);
             $this.toggleClass('vote');
               if($this.hasClass('vote')){
-                $this.text('Vote'); 
+                $this.children(".vote-count").html("<p class='text-vote text-xs'>vote</p>");
             } else {
-                $this.text('❤');
-                $this.addClass("voted"); 
+                $this.children(".vote-count").html("<p class='text-vote text-xs'>voted</p>");
+                $this.addClass("voted stroke-pink-500 text-pink-500"); 
             }
                 $.ajax({
                     type: "POST",
@@ -155,11 +155,12 @@
             var id=$(this).val();
             var $this = $(this);
             $this.toggleClass('voted');
-             if($this.hasClass('voted')){
-                $this.text('❤');
+             if($this.hasClass('voted stroke-pink-500 text-pink-500')){
+                $this.children(".vote-count").html("<p class='text-vote text-xs'>voted</p>");
             } else {
-                $this.text('Vote');
+                $this.removeClass("stroke-pink-500 text-pink-500");
                 $this.addClass("vote");
+                $this.children(".vote-count").html("<p class='text-vote text-xs'>vote</p>");
             }
                 $.ajax({
                     type: "POST",
@@ -185,7 +186,7 @@
                 showVote: 1
             },
             success: function(response){
-                $('#show_vote'+id).html(response);
+                $('#show_vote'+id).children().children("span.vote-number").text(response);
                 
             }
         });

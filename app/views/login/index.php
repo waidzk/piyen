@@ -31,7 +31,7 @@
                             <div class="flex flex-col justify-center items-center w-full">
                               <button name="login" class="rounded-full w-full bg-pink-500 hover:bg-pink-700 duration-100 text-white p-2 m-2">Sign in</button>
                               <p class="text-sm m-2 text-center text-slate-500">or</p>
-                              <button name="login" class="rounded-full w-full border border-slate-200 bg-slate-200 hover:bg-slate-300 duration-100 text-pink-500 p-2 m-2 inline-flex justify-center">
+                              <button name="login" class="rounded-full w-full bg-pink-50 hover:bg-pink-100 duration-100 text-pink-500 p-2 m-2 inline-flex justify-center">
                                 <img src="<?= BASEURL ?>/public/image/icons/google.png" class="w-5 h-5 mr-2 self-center" alt="">Sign in with google</button>
                               <p class="text-xs m-2">Not regitered yet? <a href="<?= BASEURL ?>signup" class="text-pink-700">Create an account</a>.</p>
                             </div>
