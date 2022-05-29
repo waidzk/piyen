@@ -568,6 +568,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin: 0.25rem;
 }
 
+.m-3 {
+  margin: 0.75rem;
+}
+
 .mx-6 {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
@@ -622,10 +626,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .ml-5 {
   margin-left: 1.25rem;
-}
-
-.ml-11 {
-  margin-left: 2.75rem;
 }
 
 .mr-1 {
@@ -798,6 +798,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 2.5rem;
 }
 
+.w-64 {
+  width: 16rem;
+}
+
+.w-96 {
+  width: 24rem;
+}
+
+.w-48 {
+  width: 12rem;
+}
+
 .shrink {
   flex-shrink: 1;
 }
@@ -889,6 +901,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-top-width: 2px;
 }
 
+.border-r-2 {
+  border-right-width: 2px;
+}
+
+.border-l {
+  border-left-width: 1px;
+}
+
 .border-pink-500 {
   --tw-border-opacity: 1;
   border-color: rgb(236 72 153 / var(--tw-border-opacity));
@@ -902,6 +922,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-pink-300 {
   --tw-border-opacity: 1;
   border-color: rgb(249 168 212 / var(--tw-border-opacity));
+}
+
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
 .bg-pink-500 {
@@ -919,6 +944,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(253 242 248 / var(--tw-bg-opacity));
 }
 
+.bg-blue-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(147 197 253 / var(--tw-bg-opacity));
+}
+
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -934,6 +964,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .stroke-pink-500 {
   stroke: #ec4899;
+}
+
+.stroke-slate-400 {
+  stroke: #94a3b8;
+}
+
+.stroke-slate-500 {
+  stroke: #64748b;
 }
 
 .p-5 {

@@ -50,7 +50,7 @@
                 <?php 
 			    	if (validate_vote($_SESSION['id'], $comment['id'])) {
 			    		echo '
-			    		  <button value="'.$comment['id'].'" id="voted" class="flex flex-row items-center ml-11 w-fit p-2 rounded-full stroke-pink-500 text-pink-500 voted">
+			    		  <button value="'.$comment['id'].'" id="voted" class="flex flex-row items-center w-fit p-2 rounded-full stroke-pink-500 text-pink-500 voted">
                   <div class="voted-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
                   </svg></div>
@@ -58,7 +58,7 @@
 			    		';
 			    	} else {
 			    		echo '
-			    		  <button value="'.$comment['id'].'" id="vote" class="flex flex-row items-center ml-11 my-1 w-fit p-2 rounded-full vote">
+			    		  <button value="'.$comment['id'].'" id="vote" class="flex flex-row items-center my-1 w-fit p-2 rounded-full vote">
                   <div class="voted-icon"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
                   </svg></div>
@@ -121,69 +121,3 @@
     </svg></span></a>
   </div>
 </section>
-<script src="jquery-3.1.1.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-        $(document).on('click', '.vote', function(){
-            var id = $(this).val();
-            var $this = $(this);
-            $this.toggleClass('vote');
-              if($this.hasClass('vote')){
-                $this.addClass('vote');
-              } else {
-                $this.addClass("voted stroke-pink-500 text-pink-500"); 
-            }
-                $.ajax({
-                    type: "POST",
-                    url: "http://localhost/cerita-perempuan/votes/add",
-                    data: {
-                        id: id,
-                        votes: 1,
-                    },
-                    success: function(){
-                        showVote(id);
-                    }
-                });
-        });
-        
-        $(document).on('click', '.voted', function(){
-            var id=$(this).val();
-            var $this = $(this);
-            $this.toggleClass('voted');
-             if($this.hasClass('voted stroke-pink-500 text-pink-500')){
-              $this.addClass('voted')
-            } else {
-                $this.removeClass("stroke-pink-500 text-pink-500");
-                $this.addClass("vote");
-            }
-                $.ajax({
-                    type: "POST",
-                    url: "http://localhost/cerita-perempuan/votes/down",
-                    data: {
-                        id: id,
-                        votes: 1,
-                    },
-                    success: function(){
-                        showVote(id);
-                    }
-                });
-        });
-    });
-    
-    function showVote(id){
-        $.ajax({
-            url: 'http://localhost/cerita-perempuan/votes/showVote',
-            type: 'POST',
-            async: false,
-            data:{
-                id: id,
-                showVote: 1
-            },
-            success: function(response){
-                $('#show_vote'+id).children().children("span.vote-number").text(response);
-                
-            }
-        });
-    }
-</script>
