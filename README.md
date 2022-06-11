@@ -35,32 +35,29 @@ Prerequisite :
 > Folder akan ditulis dengan tanda (namafolder), contoh: (app), (database), (routes)
 > Sebuah difila akan ditulis biasa lengkap dengan ekstensinya
 
-# (app)
-#----------- (http)
-#-------------------- (controllers) // Berisi konfigurasi controller web
-# ----------- (models) // Berisi konfigurasi model untuk controller
-# (database)
-#----------- (factories) // untuk konfigurasi format data dummy
-#----------- (migrations) // berisi migrasi tabel untuk database
-#----------- (seeders) // untuk membuat data dummy sesuai yang ada pada factories
+#### (app)
+- (http)
+  - (controllers) // Berisi konfigurasi controller web
+- (models) // Berisi konfigurasi model untuk controller
+#### (database)
+- (factories) // untuk konfigurasi format data dummy
+- (migrations) // berisi migrasi tabel untuk database
+- (seeders) // untuk membuat data dummy sesuai yang ada pada factories
 # (public)
-#----------- (css) // folder berisi file css, termasuk tailwind css pada file output.css
-#----------- (html) // berisi .html yang tidak muncul di halaman, tujuannya development halaman web
-#----------- (image) // berisi assets, icons, logo, dll
-#----------- (js) // berisi file konfigurasi javascript pada
-#----------- (php) // berisi .php yang tidak muncul di halaman, tujuannya development halaman web
-#----------- index.php // file utama web
-# (resources)
-#----------- (css) // berisi css input untuk tailwind css
-#----------- (js) // berisi konfigurasi javascript untuk framework
-#----------- (views) // berisi file blade dan folder view untuk ditampilkan pada halaman web
-# (routes)
-#----------- web.php // berisi url yang ada pada projek
-#
-# .env.example
-# tailwind.config.js
-#
-#
+- (css) // folder berisi file css, termasuk tailwind css pada file output.css
+- (html) // berisi .html yang tidak muncul di halaman, tujuannya development halaman web
+- (image) // berisi assets, icons, logo, dll
+- (js) // berisi file konfigurasi javascript pada
+- (php) // berisi .php yang tidak muncul di halaman, tujuannya development halaman web
+- index.php // file utama web
+#### (resources)
+- (css) // berisi css input untuk tailwind css
+- (js) // berisi konfigurasi javascript untuk framework
+- (views) // berisi file blade dan folder view untuk ditampilkan pada halaman web
+#### (routes)
+- web.php // berisi url yang ada pada projek
+#### .env.example
+#### tailwind.config.js
 
 ## Running Web
 
