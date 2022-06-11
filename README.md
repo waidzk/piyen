@@ -43,7 +43,7 @@ Prerequisite :
 - (factories) // untuk konfigurasi format data dummy
 - (migrations) // berisi migrasi tabel untuk database
 - (seeders) // untuk membuat data dummy sesuai yang ada pada factories
-# (public)
+#### (public)
 - (css) // folder berisi file css, termasuk tailwind css pada file output.css
 - (html) // berisi .html yang tidak muncul di halaman, tujuannya development halaman web
 - (image) // berisi assets, icons, logo, dll
