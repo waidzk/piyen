@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teras Perempuan | {{ $title }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-    {{-- <script src="<?= //BASEURL?>app/library/vendor/ckeditor/ckeditor/ckeditor.js"></script> --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">     
 </head>
 <body>
     @yield('container')

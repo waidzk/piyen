@@ -7,9 +7,14 @@
         <div class="photo-profile m-1">
             <img class="w-40 rounded-full" src="{{ asset('image/assets/profile-pic/'.$user->photo) }}" alt="User_Profiles">
         </div>
-        <div class="info-profile flex flex-col items-center m-1">
+        <div class="max-w-xl info-profile flex flex-col items-center m-3">
             <h2 class="username text-2xl font-semibold">{{ $user->username }}</h2>
-            <p class="bio text-xs">{{ $user->bio }}</p>
+            <h3 class="text-md text-black">{{ $user->name }}</h3>
+            <h3 class="text-md mb-4 mt-2 ">
+                <svg class="inline" xmlns="http://www.w3.org/2000/svg" width="21"viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span class="text-pink-500 text-lg">{{ $user->birthday }}</span> 
+            </h3>
+            <span class="w-1/2 text-md text-center mb-4">{{ $user->bio }}</span>
         </div>
     </section>
     <section class="content-profile">

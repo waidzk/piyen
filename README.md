@@ -154,10 +154,81 @@ php artisan migrate:fresh
     Link web akan menuju pada http://localhost/(folderprojek)/public
 -   Valet
     Link web akan menuju pada http://teras-perempuan.test
--   PHP Artisan Server
+-   PHP Artisan Server.
     Cara ini dilakukan dengan menjalankan perintah:
     `php artisan serve`
     di terminal vs code pada folder projek.
     Biasanya link local web akan menuju http://127.0.0.1:8000
+
+## Database Seeder
+
+Database seeder adalah sebuah proses memasukan data dummy kepada database dengan secara otomatis dimasukan oleh seed. Seeder ini dibuat menggunakan factory dengan library faker yang ada pada laravel. Default seeder yang dimasukan yaitu, 5 data user dan 35 data artikel yang sudah termasuk relationalnya.
+
+Untuk menjalankan seeder pada daatabase, gunakan perintah:
+
+```sh
+php artisan migrate:fresh --seed
+```
+
+maka data dummy akan otomatis masuk ke dalam database.
+
+Untuk mengubah jumlah data dummy bisa dilakukan dengan cara:
+
+1. Masuk ke dalam file `Database\seeder\DatabaseSeeder.php`
+2. Ubah banyaknya data yang diinginkan pada method `factory()`.
+   Misal: `User::factory(7)->create()` akan membuat data dummy user sebanyak 7 rows dalam database.
+3. Jika mengubah banyaknya user, maka harus mengubah factory pada artikel dengan masuk ke file `Database\factory\ArticleFactory.php`.
+4. Kemudian ubah pada baris kode berikut.
+
+```sh
+
+// ubah pada method numberBetween() yang mengandung dua parameter. Parameter pertama adalah minimal number dan parameter ke dua adalah maximal number yang akan dimasukan. Contoh dibawah akan menghasilkan nomor random dari nomor 1 sampai 5. Sesuaikan maximal number dengan banyaknya user.
+
+'user_id' => $this->faker->numberBetween(1, 5),
+
+```
+
+## API
+
+Api yang disediakan hanya disediakan 3 method, yaitu get, post, dan delete. Url yang disediakan yaitu data user dan artikel.
+
+### Artikel API
+
+1. Mendapatkan semua artikel
+
+URL: https://teras-perempuan.test/api/articles
+Method: GET
+
+2. Mendapatkan Satu Data Artikel
+
+URL: https://teras-perempuan.test/api/articles/{id}
+Method: GET
+
+_Menerima ID dari artikel, bukan ID user._
+
+3. Mendapatkan Artikel Berdasarkan User
+
+URL: https://teras-perempuan/api/users/articles/{id}
+Method: GET
+
+_Menerima ID dari user, bukan ID artikel._
+
+4. Menambahkan Artikel
+
+URL: https://teras-perempuan.test/api/articles
+Method: POST
+Body: user_id (int)(required), title (string)(required), photo (string)(optional), body (text)(required).
+
+_column body merupakan isi dari article_
+
+5. Memperbarui Artikel
+
+URL: https://teras-perempuan.test/api/articles/{id}
+Method: POST
+Body: user_id (int)(required), title (string)(required), photo (string)(optional), body (text)(required).
+
+### User API
+
+User API masih dibuat.
 
 **Feel free to adding another documentation**

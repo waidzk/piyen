@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FeedController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SignupController;
@@ -20,9 +21,7 @@ use App\Http\Controllers\ArticleController;
 // Route::get('/welcome', function () {
 //     return view('welcome');
 // });
-Route::view('/', 'feeds.index', [
-    'title' => 'Feeds'
-]);
+Route::get('/', [FeedController::class, 'index']);
 
 Route::get('/articles', [ArticleController::class, 'index']);
 

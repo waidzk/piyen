@@ -17,7 +17,8 @@ class UserController extends Controller
     public function userArticles(User $user){
         return view('user.profile.index', [
             'title' => $user->username . ' Articles',
-            'user' => $user
+            'user' => $user,
+            'articles' => $user->article,
         ]);
     }
 

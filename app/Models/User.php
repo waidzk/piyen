@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Article;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Notifications\Notifiable;
@@ -20,6 +21,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'username',
+        'name',
         'birthday',
         'email',
         'photo',
@@ -54,9 +56,13 @@ class User extends Authenticatable
      */
     protected $attributes = [
         'birthday' => NULL,
+        'name' => NULL,
         'photo' => 'user.jpg',
         'bio' => NULL,
         'verified' => 3,
     ];
 
+    public function article(){
+        return $this->hasMany(Article::class);
+    }
 }
